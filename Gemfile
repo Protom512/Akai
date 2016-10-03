@@ -3,4 +3,8 @@ source "https://rubygems.org"
 
  gem "rails"
  gem "bulma-rails"
-gem 'robocop'
+ gem 'robocop'
+ 
+ group :test do
+   gem 'coveralls', :require => false
+ end
