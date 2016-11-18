@@ -27,13 +27,26 @@ build:
     # Steps make up the actions in your pipeline
     # Read more about steps on our dev center:
     # http://devcenter.wercker.com/docs/steps/index.html
-  build:
+
   steps:
-    - bundle-install
-    - rails-database-yml
-    - script:
-        name: rspec
-        code: bundle exec rspec
+# A step that executes `bundle install` command
+        - bundle-install
+        - rails-database-yml
+
+        - script:
+            name: DB schema load
+            code: bundle exec rake db:schema:load
+
+        - script:
+            name: echo ruby information
+            code: |
+                echo "ruby version $(ruby --version) running"
+                echo "from location $(which ruby)"
+                echo -p "gem list: $(gem list)
+                
+        - script:
+            name: rspec
+            code: bundle exec rspec
 
 # # deploy:
 #   steps:
