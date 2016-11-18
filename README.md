@@ -7,3 +7,4 @@
 ```sh
 $ git clone https://github.com/Protom512/Akai.git
 ```
+w

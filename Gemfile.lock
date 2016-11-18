@@ -40,6 +40,9 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.2)
     builder (3.2.2)
+    bullet (5.4.2)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     bulma-rails (0.1.2)
       sass (~> 3.2)
     concurrent-ruby (1.0.2)
@@ -51,10 +54,15 @@ GEM
       tins (>= 1.6.0, < 2)
     docile (1.1.5)
     erubis (2.7.0)
+    ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
     json (2.0.2)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -65,6 +73,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
+    mysql2 (0.4.5)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -97,8 +106,12 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.3.0)
+    rb-fsevent (0.9.8)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
     robocop (0.1.1)
       rack
+    ruby_dep (1.5.0)
     sass (3.4.22)
     simplecov (0.12.0)
       docile (~> 1.1.0)
@@ -119,6 +132,7 @@ GEM
     tins (1.12.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uniform_notifier (1.10.0)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -127,10 +141,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bullet
   bulma-rails
   coveralls
+  listen
+  mysql2
   rails
   robocop
 
 BUNDLED WITH
-   1.13.2
+   1.13.6
