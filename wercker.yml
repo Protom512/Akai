@@ -35,7 +35,8 @@ build:
 
         - script:
             name: DB schema load
-            code: bundle exec rake db:schema:load
+            code: bundle exec rake db:create
+            code: bundle exec rake db:migrate
 
         - script:
             name: echo ruby information
