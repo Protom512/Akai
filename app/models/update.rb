@@ -1,2 +1,3 @@
 class Update < ApplicationRecord
+
 end

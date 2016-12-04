@@ -1,14 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Akai</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Akai</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <%= yield %>
-  </body>
+    <body>
+        <section class="hero is-primary">
+            <div class="hero-head">
+                <div class="container">
+                    <nav class="nav">
+                        <div class="nav-left">
+                            <a class="nav-item is-brand" href="/">
+
+                                <p class="title">
+                                    a KAI
+                                </p>
+                            </a>
+                        </div>
+                        <div class="nav-center">
+                            <a class="nav-item" href="https://github.com/protom512">
+                                <span class="icon">
+                                    <i class="fa fa-github"></i>
+                                </span>
+                            </a>
+                            <a class="nav-item" href="http://bitbucket.org/kewder512">
+                              <span class="icon">
+                                <i class="fa fa-bitbucket"></i>
+                              </span>
+                              
+                            </a>
+                            <a class="nav-item" href="https://twitter.com/jgthms">
+                                <span class="icon">
+                                    <i class="fa fa-twitter"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="nav-right">
+                          
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-vcentered">
+                        <div class="column"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+        <%= yield %>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <p>
+                        <strong>Akai</strong>
+                        by
+                        <a href="http://jgthms.com">protom512</a>. The source code is licensed
+                        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed
+                        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+                    </p>
+                    <p>
+                        <a class="icon" href="https://github.com/protom512/akai">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>

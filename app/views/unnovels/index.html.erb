@@ -1,0 +1,17 @@
+
+
+
+    <% @users.each do |unnovel| %>
+    <div class="columns">
+      <div class="column is-two-thirds">
+          <%= unnovel.id %>
+        
+      </div>
+      <div class="column">
+        <div  class="box">
+          <%= link_to unnovel.writer ,("http://mypage.syosetu.com/#{unnovel.id}") %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+<br>
