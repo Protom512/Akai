@@ -6,8 +6,11 @@ source "https://rubygems.org"
   gem "jquery-rails"
   gem "turbolinks"
  gem "bulma-rails"
- gem 'material_design_lite-rails', '~> 1.2'
+ gem "font-awesome-rails"
  gem 'listen'
+ gem 'momentjs-rails'
+ gem 'chart-js-rails'
+ gem 'whenever', :require => false
  group :test do
    gem 'coveralls', :require => false
    gem 'bullet'
