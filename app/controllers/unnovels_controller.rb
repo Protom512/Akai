@@ -5,6 +5,7 @@ class UnnovelsController < ApplicationController
   def index
 
     @unnovels = Unnovel.all
+    @novel = Novel.all.joins(:user)
     @users = User.all
   end
 

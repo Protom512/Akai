@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204135341) do
+ActiveRecord::Schema.define(version: 20161206144815) do
+
+  create_table "novels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "title",          limit: 65535
+    t.text     "story",          limit: 65535
+    t.text     "user_id",        limit: 65535
+    t.string   "ncode"
+    t.integer  "genre"
+    t.integer  "biggenre"
+    t.integer  "end"
+    t.integer  "novel_type"
+    t.integer  "general_all_no"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "unnovels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
