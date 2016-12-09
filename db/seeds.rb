@@ -15,7 +15,8 @@ while num<=2001-500 do
     js = ActiveSupport::JSON.decode(jsons)
 
     js.each do |data|
-    
+        
+
         Update.create(
             ncode: data['ncode'] , 
             length: data['length'] , 
@@ -28,27 +29,27 @@ while num<=2001-500 do
             
             )
         User.find_or_create_by(id: data['userid']).update(writer: data['writer'])
-        Novel.find_or_create_by(
-            ncode: data['ncode'],
-            title: data['title'],
-            story: data['story'],
-            user_id: data['userid'],
-            genre: data['genre'],
-            biggenre: data['biggenre'],
-            end: data['end'],
-            novel_type: data['novel_type'],
-            general_all_no: data['general_all_no']
-            ).update(
-                ncode: data['ncode'],
-                title: data['title'],
-                story: data['story'],
-                user_id: data['userid'],
-                genre: data['genre'],
-                biggenre: data['biggenre'],
-                end: data['end'],
-                novel_type: data['novel_type'],
-                general_all_no: data['general_all_no']
-            )
+        # Novel.find_or_create_by(
+        #     ncode: data['ncode'],
+        #     title: data['title'],
+        #     story: data['story'],
+        #     user_id: data['userid'],
+        #     genre: data['genre'],
+        #     biggenre: data['biggenre'],
+        #     end: data['end'],
+        #     novel_type: data['novel_type'],
+        #     general_all_no: data['general_all_no']
+        #     ).update(
+        #         ncode: data['ncode'],
+        #         title: data['title'],
+        #         story: data['story'],
+        #         user_id: data['userid'],
+        #         genre: data['genre'],
+        #         biggenre: data['biggenre'],
+        #         end: data['end'],
+        #         novel_type: data['novel_type'],
+        #         general_all_no: data['general_all_no']
+        #     )
         
     end
     num+=500

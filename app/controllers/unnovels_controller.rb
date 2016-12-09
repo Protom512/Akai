@@ -3,10 +3,7 @@ class UnnovelsController < ApplicationController
 
   # GET /unnovels
   def index
-
-    @unnovels = Unnovel.all
-    @novel = Novel.all.joins(:user)
-    @users = User.all
+    @updates = Update.all.group(:ncode)
   end
 
   # GET /unnovels/1
