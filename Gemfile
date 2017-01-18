@@ -22,6 +22,8 @@ end
 
  group :test do
    gem 'coveralls', :require => false
+   gem 'codecov', :require => false
    gem 'bullet'
-    gem 'robocop'
+   gem 'robocop'
+   gem 'rspec'
  end

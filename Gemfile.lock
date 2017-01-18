@@ -54,6 +54,10 @@ GEM
     chart-js-rails (0.1.1)
       railties (> 3.1)
     chronic (0.10.2)
+    codecov (0.1.9)
+      json
+      simplecov
+      url
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     coveralls (0.8.16)
@@ -63,6 +67,7 @@ GEM
       thor (~> 0.19.1)
       tins (>= 1.6.0, < 2)
     debug_inspector (0.0.2)
+    diff-lcs (1.2.5)
     docile (1.1.5)
     erubis (2.7.0)
     ffi (1.9.14)
@@ -130,6 +135,19 @@ GEM
       ffi (>= 0.5.0)
     robocop (0.1.1)
       rack
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.4)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     ruby_dep (1.5.0)
     sass (3.4.22)
     simplecov (0.12.0)
@@ -155,6 +173,7 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uniform_notifier (1.10.0)
+    url (0.3.2)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -170,6 +189,7 @@ DEPENDENCIES
   bullet
   bulma-rails
   chart-js-rails
+  codecov
   coveralls
   font-awesome-rails
   jquery-rails
@@ -179,6 +199,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails
   robocop
+  rspec
   turbolinks
   whenever
 

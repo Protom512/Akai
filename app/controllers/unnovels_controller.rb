@@ -3,7 +3,7 @@ class UnnovelsController < ApplicationController
 
   # GET /unnovels
   def index
-    @updates = Update.all.group(:ncode)
+    @updates = Update.all.group(:ncode).first(10)
   end
 
   # GET /unnovels/1

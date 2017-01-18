@@ -1,3 +1,7 @@
+
+# Created by https://www.gitignore.io/api/rails
+
+### Rails ###
 *.rbc
 capybara-*.html
 .rspec
@@ -12,9 +16,11 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 
-# TODO Comment out these rules if you are OK with secrets being uploaded to the repo
+# TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
-config/secrets.yml
+
+# Only include if you have production secrets in this file, which is no longer a Rails default
+ config/secrets.yml
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
@@ -40,3 +46,5 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# End of https://www.gitignore.io/api/rails
