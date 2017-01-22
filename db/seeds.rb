@@ -15,8 +15,9 @@ while num<=2001-500 do
     js = ActiveSupport::JSON.decode(jsons)
 
     js.each do |data|
-        
-
+        if data['allcount'].present?
+            next
+        end
         Update.create(
             ncode: data['ncode'] , 
             length: data['length'] , 
@@ -25,31 +26,23 @@ while num<=2001-500 do
             global_point: data['global_point'], 
             fav_novel_cnt: data['fav_novel_cnt'], 
             review_cnt: data['review_cnt'], 
-            novel_updated_at: data['novelupdated_at']
-            
+            novel_updated_at: data['novelupdated_at'],
+            general_all_no: data['general_all_no']
+
             )
         User.find_or_create_by(id: data['userid']).update(writer: data['writer'])
-        # Novel.find_or_create_by(
-        #     ncode: data['ncode'],
-        #     title: data['title'],
-        #     story: data['story'],
-        #     user_id: data['userid'],
-        #     genre: data['genre'],
-        #     biggenre: data['biggenre'],
-        #     end: data['end'],
-        #     novel_type: data['novel_type'],
-        #     general_all_no: data['general_all_no']
-        #     ).update(
-        #         ncode: data['ncode'],
-        #         title: data['title'],
-        #         story: data['story'],
-        #         user_id: data['userid'],
-        #         genre: data['genre'],
-        #         biggenre: data['biggenre'],
-        #         end: data['end'],
-        #         novel_type: data['novel_type'],
-        #         general_all_no: data['general_all_no']
-        #     )
+        Novel.find_or_create_by(
+            ncode: data['ncode'],
+            ).update(
+                
+                title: data['title'],
+                story: data['story'],
+                user_id: data['userid'],
+                genre: data['genre'],
+                big_genre: data['biggenre'],
+                ends: data['end'],
+                novel_type: data['novel_type'],
+            )
         
     end
     num+=500
