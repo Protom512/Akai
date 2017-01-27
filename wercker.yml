@@ -32,14 +32,14 @@ build:
             code: |
                 RAILS_ENV=test bundle exec rake db:create
                 RAILS_ENV=test bundle exec rake db:migrate
-                # RAILS_ENV=test bundle exec rake db:seed
+        
 
         - script:
             name: echo ruby information
             code: |
                 echo "ruby version $(ruby --version) running"
                 echo "from location $(which ruby)"
-                echo -p "gem list: $(gem list)
+                echo -p "gem list: $(gem list) "
                 
         - script:
             name: rspec
