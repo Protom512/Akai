@@ -11,19 +11,18 @@ source "https://rubygems.org"
  gem 'momentjs-rails'
  gem 'chart-js-rails'
  gem 'whenever', :require => false
-group :development do
+group :development ,:test do
   # エラー画面をわかりやすく整形してくれる
   gem 'better_errors'
   gem 'rack-mini-profiler', require: false
-
+gem 'metric_fu'
+  
   # better_errorsの画面上にirb/pry(PERL)を表示する
   gem 'binding_of_caller'
-end
-
- group :test do
    gem 'coveralls', :require => false
    gem 'codecov', :require => false
    gem 'bullet'
-   gem 'robocop'
+   gem 'rubocop', require: false
+gem 'rubocop-checkstyle_formatter', require: false
    gem 'rspec'
  end

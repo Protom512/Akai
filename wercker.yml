@@ -7,12 +7,6 @@ box: ruby
 
 # You can also use services such as databases. Read more on our dev center:
 # http://devcenter.wercker.com/docs/services/index.html
-#services:
-    #- postgres
-    # http://devcenter.wercker.com/docs/services/postgresql.html
-
-    # - mongodb
-    # http://devcenter.wercker.com/docs/services/mongodb.html
 services:
   - id: mysql
     env:
@@ -35,8 +29,9 @@ build:
 
         - script:
             name: DB schema load
-            code: bundle exec rake db:create
-            code: bundle exec rake db:migrate
+            code: RAILS_ENV=test bundle exec rake db:create
+            code: RAILS_ENV=test bundle exec rake db:migrate
+            code: RAILS_ENV=test bundle exec rake db:seed
 
         - script:
             name: echo ruby information
