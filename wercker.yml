@@ -29,9 +29,10 @@ build:
 
         - script:
             name: DB schema load
-            code: RAILS_ENV=test bundle exec rake db:create
-            code: RAILS_ENV=test bundle exec rake db:migrate
-            code: RAILS_ENV=test bundle exec rake db:seed
+            code: |
+                RAILS_ENV=test bundle exec rake db:create
+                RAILS_ENV=test bundle exec rake db:migrate
+                RAILS_ENV=test bundle exec rake db:seed
 
         - script:
             name: echo ruby information
