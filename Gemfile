@@ -11,12 +11,14 @@ source "https://rubygems.org"
  gem 'momentjs-rails'
  gem 'chart-js-rails'
  gem 'whenever', :require => false
+ gem "parallel"
 group :development ,:test do
   # エラー画面をわかりやすく整形してくれる
   gem 'better_errors'
   gem 'rack-mini-profiler', require: false
 gem 'metric_fu'
-  
+  gem 'pry'
+  gem 'rails-erd'
   # better_errorsの画面上にirb/pry(PERL)を表示する
   gem 'binding_of_caller'
    gem 'coveralls', :require => false

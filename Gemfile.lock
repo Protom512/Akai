@@ -63,6 +63,7 @@ GEM
       parallel
     chart-js-rails (0.1.1)
       railties (> 3.1)
+    choice (0.2.0)
     chronic (0.10.2)
     churn (0.0.35)
       chronic (>= 0.2.3)
@@ -176,6 +177,10 @@ GEM
     path_expander (1.0.1)
     powerpack (0.1.1)
     procto (0.0.3)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     public_suffix (2.0.5)
     rack (2.0.1)
     rack-mini-profiler (0.10.1)
@@ -197,6 +202,11 @@ GEM
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
+    rails-erd (1.5.0)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     rails_best_practices (1.17.0)
@@ -251,6 +261,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     rubocop-checkstyle_formatter (0.3.0)
       rubocop (>= 0.30.1)
+    ruby-graphviz (1.2.2)
     ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
     ruby_parser (3.8.4)
@@ -262,6 +273,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    slop (3.6.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -316,8 +328,10 @@ DEPENDENCIES
   metric_fu
   momentjs-rails
   mysql2
+  pry
   rack-mini-profiler
   rails
+  rails-erd
   rspec
   rubocop
   rubocop-checkstyle_formatter
