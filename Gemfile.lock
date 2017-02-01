@@ -328,6 +328,7 @@ DEPENDENCIES
   metric_fu
   momentjs-rails
   mysql2
+  parallel
   pry
   rack-mini-profiler
   rails

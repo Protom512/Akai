@@ -45,15 +45,13 @@ build:
             name: rspec
             code: bundle exec rspec
 
-# # deploy:
-#   steps:
-#     - heroku-deploy:
-#         install-toolbelt: true
-#         key-name: HEROKU_SSH_KEY
-#     - script:
-#         name: Update database
-#         code: heroku run rake db:migrate --app $HEROKU_APP_NAME
-#   after-steps:
-#     - wantedly/pretty-slack-notify:
-#         webhook_url: $SLACK_WEBHOOK_URL
-#         channel: notification
+develop-deploy:
+  steps:
+    - heroku-deploy:
+        install-toolbelt: true
+        key: $HEROKU_KEY
+        user: $HEROKU_USER
+        app-name: $HEROKU_APP_NAME
+    - script:
+        name: Update database
+        code: heroku run rake db:migrate --app $HEROKU_APP_NAME
