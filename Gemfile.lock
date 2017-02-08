@@ -127,6 +127,7 @@ GEM
     json_pure (2.0.3)
     launchy (2.4.3)
       addressable (~> 2.3)
+    libv8 (3.16.14.17)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -234,6 +235,7 @@ GEM
       parser (~> 2.2)
       rainbow (~> 2.0)
       unparser (~> 0.2.2)
+    ref (2.0.0)
     require_all (1.4.0)
     rest-client (2.0.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -284,6 +286,9 @@ GEM
       sprockets (>= 3.0.0)
     term-ansicolor (1.4.0)
       tins (~> 1.0)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
+      ref
     thor (0.19.4)
     thread_safe (0.3.5)
     tins (1.13.2)
@@ -339,6 +344,7 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-checkstyle_formatter
+  therubyracer
   turbolinks
   uglifier
   whenever

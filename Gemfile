@@ -3,8 +3,8 @@ source "https://rubygems.org"
 
  gem "rails"
  gem "mysql2"
-  gem "jquery-rails"
-  gem "turbolinks"
+ gem "jquery-rails"
+ gem "turbolinks"
  gem "bulma-rails"
  gem "font-awesome-rails"
  gem 'listen'
@@ -13,8 +13,8 @@ source "https://rubygems.org"
  gem 'whenever', :require => false
  gem "parallel"
  gem "uglifier"
+ gem 'therubyracer'
 group :development ,:test do
-  # エラー画面をわかりやすく整形してくれる
   gem 'better_errors'
   gem 'rack-mini-profiler', require: false
 gem 'metric_fu'
