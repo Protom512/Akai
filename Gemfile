@@ -12,6 +12,7 @@ source "https://rubygems.org"
  gem 'chart-js-rails'
  gem 'whenever', :require => false
  gem "parallel"
+ gem "uglifier"
 group :development ,:test do
   # エラー画面をわかりやすく整形してくれる
   gem 'better_errors'
