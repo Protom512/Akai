@@ -13,7 +13,7 @@ source "https://rubygems.org"
  gem 'whenever', :require => false
  gem "parallel"
  gem "uglifier"
- gem " sass"
+ gem "sass"
  gem 'therubyracer'
 group :development ,:test do
   gem 'better_errors'
