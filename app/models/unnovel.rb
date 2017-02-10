@@ -30,8 +30,16 @@ class Unnovel < ApplicationRecord
         }
     end
     def self.calculate_point
+        date=Date.today
+        duration=1.day
+        start_date=date-duration
+        end_date=date
+        Unnovel.get_data
+        novels=Novel.all
+        novels.each{|novel|
+        unovel.update.which(novelupdated_at: start_date... end_date)
         
-        Update.order(:all_point).last(10)
+        }
         
     end
 end

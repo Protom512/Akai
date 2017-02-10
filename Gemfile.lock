@@ -98,7 +98,6 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     equalizer (0.0.11)
     erubis (2.7.0)
-    execjs (2.7.0)
     fattr (2.3.0)
     ffi (1.9.17)
     flay (2.8.1)
@@ -297,8 +296,6 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.4)
-      execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
@@ -344,9 +341,9 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-checkstyle_formatter
+  sass
   therubyracer
   turbolinks
-  uglifier
   whenever
 
 BUNDLED WITH
