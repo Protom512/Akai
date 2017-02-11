@@ -6,9 +6,12 @@ require 'rails/test_help'
 require 'simplecov'
 SimpleCov.start
 
+<<<<<<< HEAD
 require 'codecov'
 SimpleCov.formatter = SimpleCov::Formatter::Codecov
 
+=======
+>>>>>>> 09b8924cd443d4dc6117cf56a9ade4eb939f2248
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
