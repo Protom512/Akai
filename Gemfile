@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 source 'https://rubygems.org'
 
-<<<<<<< HEAD
  gem "rails"
  gem "mysql2"
  gem "jquery-rails"
@@ -31,12 +30,3 @@ gem 'metric_fu'
 gem 'rubocop-checkstyle_formatter', require: false
    gem 'rspec'
  end
-=======
-gem 'rails'
-gem 'bulma-rails'
-gem 'rubocop'
-
-group :test do
- gem 'coveralls', :require => false
-end
->>>>>>> 09b8924cd443d4dc6117cf56a9ade4eb939f2248
