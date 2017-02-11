@@ -5,7 +5,7 @@ source 'https://rubygems.org'
  gem "mysql2"
  gem "jquery-rails"
  gem "turbolinks"
- gem "bulma-rails"
+#  gem "bulma-rails"
  gem "font-awesome-rails"
  gem 'listen'
  gem 'momentjs-rails'
