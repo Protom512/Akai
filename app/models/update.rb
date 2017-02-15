@@ -14,4 +14,7 @@ class Update < ApplicationRecord
             )
             
     end
+    def length_per_time
+        self.length.to_f / self.novel_updated_at.to_f
+    end
 end

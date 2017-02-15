@@ -1,6 +1,7 @@
 class Novel < ApplicationRecord
     has_many :updates,primary_key: "ncode",foreign_key:"ncode"
     belongs_to :user
+    belongs_to :unnovel
     validates :ncode, uniqueness:true
     def self.set_data(data)
         novel=Novel.find_or_create_by(
@@ -15,6 +16,5 @@ class Novel < ApplicationRecord
                 ends: data['end'],
                 novel_type: data['novel_type']
             )
-            p novel
     end
 end

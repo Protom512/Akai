@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/ubuntu/workspace/app/models/unnovel.rb @ line 68 Unnovel#calc_:
+
+    [1;34m63[0m:             _duration=[1;34m1[0m.year
+    [1;34m64[0m:         [32mend[0m
+    [1;34m65[0m:         p [31m[1;31m"[0m[31mcalculation[1;31m"[0m[31m[0m
+    [1;34m66[0m:         _point=[1;34m0[0m
+    [1;34m67[0m:         binding.pry
+ => [1;34m68[0m:         p [31m[1;31m"[0m[31mt1[1;31m"[0m[31m[0m
+    [1;34m69[0m:         p novel
+    [1;34m70[0m:     end_date=date + [1;34m1[0m.day
+    [1;34m71[0m:     start_date=date - duration + [1;34m1[0m.day
+    [1;34m72[0m:     [1;34m#    p novel.updates.where(novel_updated_at: date-duration+ 1.day...date+ 1.day)[0m
+    [1;34m73[0m:         updates=novel.updates.where([35mnovel_updated_at[0m: start_date...end_date)
+

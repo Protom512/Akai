@@ -5,7 +5,6 @@ source 'https://rubygems.org'
  gem "mysql2"
  gem "jquery-rails"
  gem "turbolinks"
-#  gem "bulma-rails"
  gem "font-awesome-rails"
  gem 'listen'
  gem 'momentjs-rails'
@@ -26,6 +25,7 @@ gem 'metric_fu'
    gem 'coveralls', :require => false
    gem 'codecov', :require => false
    gem 'bullet'
+   gem 'pry-byebug'
    gem 'rubocop', require: false
 gem 'rubocop-checkstyle_formatter', require: false
    gem 'rspec'
