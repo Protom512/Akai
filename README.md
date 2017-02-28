@@ -8,14 +8,15 @@
 ### what is this ? 
 
 ### DEMO
-on [Heroku](https://mighty-mountain-90319.herokuapp.com/)
+on [Heroku](https://peaceful-crag-90475.herokuapp.com/ )
 
 ## install
 ```
 git clone https://github.com/Protom512/Akai.git my-pro
 cd my-pro
 ```
-```
+
+```sh
 bundle install
 bundle exec rake db:create
 bundle exec rake db:migrate

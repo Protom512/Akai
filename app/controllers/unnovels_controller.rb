@@ -4,6 +4,7 @@ class UnnovelsController < ApplicationController
   # GET /unnovels
   def index
     @updates = Update.all.order(:novel_updated_at).group(:ncode).last(10)
+    gon.update_data=Update.daily_data
   end
 
 
