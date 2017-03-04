@@ -18,7 +18,8 @@ source 'https://rubygems.org'
 group :development ,:test do
   gem 'better_errors'
   gem 'rack-mini-profiler', require: false
-gem 'metric_fu'
+  gem "rubycritic", require: false
+  gem 'metric_fu'
   gem 'pry'
   gem 'rails-erd'
   # better_errorsの画面上にirb/pry(PERL)を表示する
