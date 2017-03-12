@@ -1,23 +1,21 @@
 require 'zlib'
 class Unnovel < ApplicationRecord
-    has_one :novel
+    # has_one :novel
     STATUS=["daily","weekly","monthly","yearly"]
     def intialize(date=Date.today,duration =1.week)
         @data=data
-        
     end   
     def self.get_data
         jsons=Array.new
         urls=Array.new
-        urls.push(ScoppConstant.get_url(1))
-        urls.push(ScoppConstant.get_url(501))
-        urls.push(ScoppConstant.get_url(1001))
-        urls.push(ScoppConstant.get_url(1501))
+        urls.push(ScoppConstant.get_url(500))
+        urls.push(ScoppConstant.get_url(1000))
+        urls.push(ScoppConstant.get_url(1500))
+        urls.push(ScoppConstant.get_url(2000))
         Parallel.each(urls,in_threads: 4){|url|
             uri = URI.parse(url)
             gzip = Net::HTTP.get(uri)
             jsons.push(ActiveSupport::Gzip.decompress(gzip))
-            
         }
         jsons.each{|json|
         js = ActiveSupport::JSON.decode(json)
@@ -64,14 +62,12 @@ class Unnovel < ApplicationRecord
         end
         p "calculation"
         _point=0
-        
         p "t1"
         p date
         end_date=date + 1.day
         start_date=date  + 1.day- _duration
         p "#{start_date} #{end_date}"
         updates=novel.updates.where(novel_updated_at: start_date...end_date)
-        binding.pry
         p "te2"
         _point+=updates.count.to_f
         p "te3"
@@ -81,7 +77,5 @@ class Unnovel < ApplicationRecord
         p "te5"
         _point+=diff_length.to_f/_duration.to_f
         self.points=_point
-        
     end
 end
-
