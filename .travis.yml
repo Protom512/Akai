@@ -2,12 +2,14 @@ language: ruby
 rvm:
 - 2.3.1
 - 2.4.0
+services:
+  - mysql
 bundler_args: --without development --deployment
- 
 cache: bundler
- 
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS novel_test;' 
 before_script:
-  - cp config/database.travis.yml config/database.yml
+  - cp config/database.yml.travis config/database.yml
   - bundle exec rake db:create
   - bundle exec rake db:migrate
 addons:

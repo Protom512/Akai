@@ -35,4 +35,5 @@ class Update < ApplicationRecord
         end
         array
     end
+
 end
