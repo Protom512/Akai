@@ -1,4 +1,6 @@
 <% @updates.each do |update| %>
+<div class='box'>
+
     <div class= "tile is-ancestor">
         <div class="tile is-parent ">
             <article  class="tile is-child">
@@ -15,12 +17,43 @@
     </div>
     <div class= "tile is-ancestor">
         <div class="tile is-parent ">
-              <article class="tile is-child notification is-primary">
+              <article class="tile is-child notification">
                   <%= update.novel.story%>       
                 </article>
     
         </div>
     </div>
+    </div>
     <% end %>
 <br>
 <hr>
+<div class='box'>
+<%= render partial: "graph"%>
+</div>
+<hr>
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<script>
+var data = {
+    datasets: [
+        {
+            label: 'Update count',
+            data: gon.update_data,
+            backgroundColor:"#FF6384",
+            hoverBackgroundColor: "#FF6384",
+        }]
+};
+var ctx = document.getElementById("myChart");
+var myBubbleChart = new Chart(ctx,{
+    type: 'bubble',
+    data: data,
+    options: {
+        elements: {
+            points: {
+                borderWidth: 1,
+                borderColor: 'rgb(0, 0, 1)'
+            }
+        }
+    }
+});
+</script>

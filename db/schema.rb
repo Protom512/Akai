@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130123932) do
+ActiveRecord::Schema.define(version: 20170211105736) do
 
   create_table "novels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "ncode"
@@ -26,8 +26,12 @@ ActiveRecord::Schema.define(version: 20170130123932) do
   end
 
   create_table "unnovels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.date     "date"
+    t.integer  "novel_id"
+    t.string   "duration"
+    t.float    "points",     limit: 24
   end
 
   create_table "updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

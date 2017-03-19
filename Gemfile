@@ -5,7 +5,6 @@ source 'https://rubygems.org'
  gem "mysql2"
  gem "jquery-rails"
  gem "turbolinks"
-#  gem "bulma-rails"
  gem "font-awesome-rails"
  gem 'listen'
  gem 'momentjs-rails'
@@ -13,12 +12,14 @@ source 'https://rubygems.org'
  gem 'whenever', :require => false
  gem "parallel"
  gem "uglifier"
+ gem 'gon'
  gem "sass"
  gem 'therubyracer'
 group :development ,:test do
   gem 'better_errors'
   gem 'rack-mini-profiler', require: false
-gem 'metric_fu'
+  gem "rubycritic", require: false
+  gem 'metric_fu'
   gem 'pry'
   gem 'rails-erd'
   # better_errorsの画面上にirb/pry(PERL)を表示する
@@ -26,6 +27,7 @@ gem 'metric_fu'
    gem 'coveralls', :require => false
    gem 'codecov', :require => false
    gem 'bullet'
+   gem 'pry-byebug'
    gem 'rubocop', require: false
 gem 'rubocop-checkstyle_formatter', require: false
    gem 'rspec'
