@@ -20,6 +20,7 @@ class Update < ApplicationRecord
         tmp_array=Array.new
         array=Array.new
         update_times=Update.all.pluck(:novel_updated_at)
+        
         update_times.each do |update_time|
             hash=Hash.new
             x=update_time.strftime('%Y-%m-%d')
@@ -31,7 +32,7 @@ class Update < ApplicationRecord
             hash.store('r',tmp_array.count(uniq))
             array.push(hash)
         end
-        array.to_json
+        array
     end
     
     def self.avg_daily_count
