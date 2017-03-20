@@ -1,0 +1,32 @@
+<% @updates.each do |update| %>
+<div class='box'>
+
+    <div class= "tile is-ancestor">
+        <div class="tile is-parent ">
+            <article  class="tile is-child">
+                <p class="title">
+                    <%= link_to "#{update.novel.title}" ,("http://ncode.syosetu.com/#{update.ncode}") ,class: 'is primary' %>
+                </p>
+                <p class="subtitle">
+                    
+                    <%= link_to update.novel.user.writer ,("http://mypage.syosetu.com//#{update.novel.user.id}") %>
+                </p>
+            </article>
+    
+        </div>
+    </div>
+    <div class= "tile is-ancestor">
+        <div class="tile is-parent ">
+              <article class="tile is-child notification">
+                  <%= update.novel.story%>       
+                </article>
+    
+        </div>
+    </div>
+    </div>
+    <% end %>
+<br>
+<hr>
+<div class='box' id = 'grass'>
+<%= render partial: "graph"%>
+</div>

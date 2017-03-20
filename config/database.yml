@@ -7,9 +7,11 @@
 default: &default
   adapter: mysql2
   pool: 5
-  username: protom512
-  password: ""
-  database: "C9"
+  port: <%=ENV['db_port']%>
+  username: <%= ENV['db_username'] %>
+  password: <%= ENV['db_pass']%>
+  host: <%=ENV['HOST']%>
+  sslca: <%=ENV['db_ssl']%>
   timeout: 5000
   
 development:
@@ -20,9 +22,10 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: test
+  adapter: mysql2
+  database: novel_test
+  username: travis
+  encoding: utf8
 
 production:
-  <<: *default
-  database: production
+  url: <%= ENV['DATABASE_URL'] %>

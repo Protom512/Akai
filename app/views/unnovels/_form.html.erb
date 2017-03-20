@@ -1,0 +1,17 @@
+<%= form_for(unnovel) do |f| %>
+  <% if unnovel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(unnovel.errors.count, "error") %> prohibited this unnovel from being saved:</h2>
+
+      <ul>
+      <% unnovel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

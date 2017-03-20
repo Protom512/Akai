@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118132605) do
+ActiveRecord::Schema.define(version: 20170211105736) do
+
+  create_table "novels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "ncode"
+    t.string   "title"
+    t.text     "story",      limit: 65535
+    t.integer  "genre"
+    t.integer  "big_genre"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id"
+    t.integer  "ends"
+    t.integer  "novel_type"
+  end
+
+  create_table "unnovels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.date     "date"
+    t.integer  "novel_id"
+    t.string   "duration"
+    t.float    "points",     limit: 24
+  end
 
   create_table "updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "ncode"
@@ -23,6 +45,7 @@ ActiveRecord::Schema.define(version: 20161118132605) do
     t.datetime "novel_updated_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "general_all_no"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
