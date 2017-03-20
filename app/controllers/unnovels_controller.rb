@@ -4,8 +4,16 @@ class UnnovelsController < ApplicationController
   # GET /unnovels
   def index
     @updates = Update.all.order(:novel_updated_at).group(:ncode).last(10)
-    gon.update_data=Update.daily_data
+    @update_data=Update.daily_data
+    gon.json_url=unnovels_url+'.json'
+    gon.update_avg=Update.avg_daily_count
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @update_data.to_json } 
+    end
   end
+
 
 
   private

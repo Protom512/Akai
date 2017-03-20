@@ -20,12 +20,11 @@ class Update < ApplicationRecord
         tmp_array=Array.new
         array=Array.new
         update_times=Update.all.pluck(:novel_updated_at)
+        
         update_times.each do |update_time|
             hash=Hash.new
-            x=update_time.hour
-            y=update_time.wday
-            hash.store('x',x)
-            hash.store('y',y)
+            x=update_time.strftime('%Y-%m-%d')
+            hash.store('date',x)
             tmp_array.push(hash)
         end
         tmp_array.uniq.each do |uniq|
@@ -35,4 +34,12 @@ class Update < ApplicationRecord
         end
         array
     end
+    
+    def self.avg_daily_count
+        data=Update.daily_data
+        cnt=data.count
+        update_times=Update.all.pluck(:novel_updated_at).count
+        update_times/cnt
+    end
+
 end
