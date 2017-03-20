@@ -27,33 +27,34 @@
     <% end %>
 <br>
 <hr>
-<div class='box'>
+<div class='box' id = 'grass'>
 <%= render partial: "graph"%>
 </div>
 <hr>
-<canvas id="myChart" width="400" height="400"></canvas>
-
-<script>
-var data = {
-    datasets: [
-        {
-            label: 'Update count',
-            data: gon.update_data,
-            backgroundColor:"#FF6384",
-            hoverBackgroundColor: "#FF6384",
-        }]
-};
-var ctx = document.getElementById("myChart");
-var myBubbleChart = new Chart(ctx,{
-    type: 'bubble',
-    data: data,
-    options: {
-        elements: {
-            points: {
-                borderWidth: 1,
-                borderColor: 'rgb(0, 0, 1)'
-            }
-        }
-    }
-});
-</script>
+<!--<div class ='box'>-->
+<!--<canvas id="myChart" width="400" height="400"></canvas>-->
+<!--</div>-->
+<!--<script>-->
+<!--var data = {-->
+<!--    datasets: [-->
+<!--        {-->
+<!--            label: 'Update count',-->
+<!--            data: gon.update_data,-->
+<!--            backgroundColor:"#FF6384",-->
+<!--            hoverBackgroundColor: "#FF6384",-->
+<!--        }]-->
+<!--};-->
+<!--var ctx = document.getElementById("myChart");-->
+<!--var myBubbleChart = new Chart(ctx,{-->
+<!--    type: 'bubble',-->
+<!--    data: data,-->
+<!--    options: {-->
+<!--        elements: {-->
+<!--            points: {-->
+<!--                borderWidth: 1,-->
+<!--                borderColor: 'rgb(0, 0, 1)'-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+<!--});-->
+<!--</script>-->

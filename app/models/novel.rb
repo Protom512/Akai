@@ -7,7 +7,6 @@ class Novel < ApplicationRecord
         novel=Novel.find_or_create_by(
             ncode: data['ncode'],
             )
-        p novel
         novel.update_attributes(
             title: data['title'],
             story: data['story'],
