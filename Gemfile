@@ -15,6 +15,9 @@ source 'https://rubygems.org'
  gem 'gon'
  gem "sass"
  gem 'therubyracer'
+ gem 'washbullet'
+ gem  'discordrb'
+ gem 'active_attr'
 group :development ,:test do
   gem 'better_errors'
   gem 'rack-mini-profiler', require: false
