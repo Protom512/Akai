@@ -1,6 +1,7 @@
 require 'washbullet'
 class ScoppConstant < ApplicationRecord
     include ActiveAttr::Attributes
+    PUSHBULLET_API_KEY =  ENV['PUSHBULLET_KEY']
     def self.get_url(num)
             url="http://api.syosetu.com/novelapi/api/?out=json&lim=500&start=#{num}&gzip=5"
         url
