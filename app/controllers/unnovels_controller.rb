@@ -6,7 +6,7 @@ class UnnovelsController < ApplicationController
     @updates = Update.all.order(:novel_updated_at).group(:ncode).last(10)
     @update_data=Update.daily_data
     gon.json_url=unnovels_url+'.json'
-    gon.update_avg=Update.avg_daily_count
+    gon.update_avg=Update.count
 
     respond_to do |format|
       format.html
