@@ -16,7 +16,6 @@ source 'https://rubygems.org'
  gem "sass"
  gem 'therubyracer'
  gem 'washbullet'
- gem  'discordrb'
  gem 'active_attr'
 group :development ,:test do
   gem 'better_errors'
@@ -25,13 +24,15 @@ group :development ,:test do
   gem 'metric_fu'
   gem 'pry'
   gem 'rails-erd'
-  # better_errorsの画面上にirb/pry(PERL)を表示する
   gem 'binding_of_caller'
-   gem 'coveralls', :require => false
-   gem 'codecov', :require => false
-   gem 'bullet'
-   gem 'pry-byebug'
-   gem 'rubocop', require: false
-gem 'rubocop-checkstyle_formatter', require: false
-   gem 'rspec'
+  gem 'coveralls', :require => false
+  gem 'codecov', :require => false
+  gem 'bullet'
+  gem 'pry-byebug'
+  gem 'rubocop', require: false
+  gem 'rubocop-checkstyle_formatter', require: false
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem "nyan-cat-formatter"
  end
+
