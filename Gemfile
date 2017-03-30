@@ -34,5 +34,11 @@ group :development ,:test do
   gem 'rspec'
   gem 'rspec-rails'
   gem "nyan-cat-formatter"
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec', require: false
+
+  gem "simplecov"
+  # モデルにテーブルのカラムをコメントで出力
+  gem 'annotate'
  end
 
