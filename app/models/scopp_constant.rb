@@ -15,7 +15,7 @@ class ScoppConstant < ApplicationRecord
             params: {
                 title: title,
                 body:  note
-            }
+                }
             )
     end
 end
