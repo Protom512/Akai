@@ -9,10 +9,11 @@ cache: bundler
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS novel_test;' 
 before_script:
-#   - cp config/database.yml.travis config/database.yml
+  - cp config/database.yml.travis config/database.yml
   - RAILS_ENV=test bundle exec rake db:create
   - RAILS_ENV=test bundle exec rake db:migrate
-  - RAILS_ENV=test bundle exec rake update_feed
-# addons:
-#     code_climate:
-#         repo_token: df3c5f6c483b553f05024f3c383fb2ecd1db60f04af44ffb1f787fa230d34c31
+  
+addons:
+    code_climate:
+        repo_token: df3c5f6c483b553f05024f3c383fb2ecd1db60f04af44ffb1f787fa230d34c31
+

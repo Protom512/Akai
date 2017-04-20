@@ -9,7 +9,7 @@ var width = 960,
 var formatPercent = d3.format(".1%");
 var avg=gon.update_avg;
 var color = d3.scaleQuantize()
-    .domain([-1.0, 1.0])
+    .domain([0.0, 0.5])
     .range(["#a50026", "#d73027", "#f46d43", "#fdae61", "#fee08b", "#ffffbf", "#d9ef8b", "#a6d96a", "#66bd63", "#1a9850", "#006837"]);
 
 var svg = d3.select("body").select("div#grass")
@@ -52,7 +52,11 @@ d3.json(gon.json_url, function(error, json) {
 
   var data = d3.nest()
       .key(function(d) { return d.date; })
+<<<<<<< HEAD
+      .rollup(function(d) { return (d[0].r)/avg; })
+=======
       .rollup(function(d) { return (d[0].r-avg)/avg; })
+>>>>>>> aef8688c67889e766d6209e2ccaa97ac599fd429
       .object(json);
   rect.filter(function(d) { return d in data; })
     .attr("fill", function(d) { return color(data[d]); })

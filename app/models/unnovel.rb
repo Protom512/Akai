@@ -6,12 +6,11 @@ class Unnovel < ApplicationRecord
         @data=data
     end   
     def self.get_data
+        before=Update.count
         jsons=Array.new
         urls=Array.new
-        urls.push(ScoppConstant.get_url(500))
-        urls.push(ScoppConstant.get_url(1000))
-        urls.push(ScoppConstant.get_url(1500))
-        urls.push(ScoppConstant.get_url(2000))
+        urls.push(ScoppConstant.get_url(1))
+        
         Parallel.each(urls,in_threads: 4){|url|
             uri = URI.parse(url)
             gzip = Net::HTTP.get(uri)
@@ -28,6 +27,7 @@ class Unnovel < ApplicationRecord
                 Update.set_data(data)
             end
         }
+        ScoppConstant.pushbullet_note('Novel updates',"at #{Time.now.hour} , #{Update.count-before} updates are add.")
     end
     def self.calculate_point
         novels=Novel.joins(:updates).where(updates: {novel_updated_at:  Date.today...Date.today+1.day})   
@@ -45,37 +45,5 @@ class Unnovel < ApplicationRecord
         #weekly
         #monthly
         #yearly
-    end
-    def calc_(date,duration,novel)
-        self.date=date
-        self.novel_id=novel.id
-        self.duration=duration
-        p duration
-        if duration==STATUS[0]
-            _duration=1.day
-        elsif duration==STATUS[1]
-            _duratino=1.week
-        elsif duration==STATUS[2]
-            _duration=1.month
-        elsif duration==STATUS[3]
-            _duration=1.year
-        end
-        p "calculation"
-        _point=0
-        p "t1"
-        p date
-        end_date=date + 1.day
-        start_date=date  + 1.day- _duration
-        p "#{start_date} #{end_date}"
-        updates=novel.updates.where(novel_updated_at: start_date...end_date)
-        p "te2"
-        _point+=updates.count.to_f
-        p "te3"
-        _point+=updates.last.length_per_time-updates.first.length_per_time
-        p "te4"
-        diff_length=(updates.last.length-updates.first.length)
-        p "te5"
-        _point+=diff_length.to_f/_duration.to_f
-        self.points=_point
     end
 end
