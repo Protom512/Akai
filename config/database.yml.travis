@@ -1,9 +1,5 @@
 test:
   adapter: mysql2
   database: novel_test
-<<<<<<< HEAD
   username: root
-=======
-  username: travis
->>>>>>> aef8688c67889e766d6209e2ccaa97ac599fd429
   encoding: utf8
