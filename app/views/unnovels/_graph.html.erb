@@ -52,7 +52,11 @@ d3.json(gon.json_url, function(error, json) {
 
   var data = d3.nest()
       .key(function(d) { return d.date; })
+<<<<<<< HEAD
       .rollup(function(d) { return (d[0].r)/avg; })
+=======
+      .rollup(function(d) { return (d[0].r-avg)/avg; })
+>>>>>>> aef8688c67889e766d6209e2ccaa97ac599fd429
       .object(json);
   rect.filter(function(d) { return d in data; })
     .attr("fill", function(d) { return color(data[d]); })

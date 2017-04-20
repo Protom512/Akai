@@ -10,6 +10,7 @@ class Unnovel < ApplicationRecord
         jsons=Array.new
         urls=Array.new
         urls.push(ScoppConstant.get_url(1))
+        
         Parallel.each(urls,in_threads: 4){|url|
             uri = URI.parse(url)
             gzip = Net::HTTP.get(uri)
