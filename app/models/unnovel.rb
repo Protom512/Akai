@@ -26,7 +26,7 @@ class Unnovel < ApplicationRecord
                 Update.set_data(data)
             end
         }
-        ScoppConstant.pushbullet_note('Novel updates',"at #{Time.now.hour} , #{Update.count-before} updates are add.")
+        # ScoppConstant.pushbullet_note('Novel updates',"at #{Time.now.hour} , #{Update.count-before} updates are add.")
     end
     def self.calculate_point
         novels=Novel.joins(:updates).where(updates: {novel_updated_at:  Date.today...Date.today+1.day})   
