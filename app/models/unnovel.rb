@@ -10,7 +10,6 @@ class Unnovel < ApplicationRecord
         jsons=Array.new
         urls=Array.new
         urls.push(ScoppConstant.get_url(1))
-        
         Parallel.each(urls,in_threads: 4){|url|
             uri = URI.parse(url)
             gzip = Net::HTTP.get(uri)
@@ -27,7 +26,6 @@ class Unnovel < ApplicationRecord
                 Update.set_data(data)
             end
         }
-        ScoppConstant.pushbullet_note('Novel updates',"at #{Time.now.hour} , #{Update.count-before} updates are add.")
     end
     def self.calculate_point
         novels=Novel.joins(:updates).where(updates: {novel_updated_at:  Date.today...Date.today+1.day})   
