@@ -6,6 +6,8 @@ class Unnovel < ApplicationRecord
         @data=data
     end   
     def self.get_data
+        bot = Discordrb::Bot.new token: <%=ENV['DISCORD_TOKEN']%>, client_id: <%=ENV['DISCORD_CLIENT_ID']%>
+        bot.run :async
         before=Update.count
         jsons=Array.new
         urls=Array.new
@@ -26,6 +28,11 @@ class Unnovel < ApplicationRecord
                 Update.set_data(data)
             end
         }
+        after=Update.count
+        text="update done!.\n #{after-before} update record(s) has been added!"
+        bot.send_message(<%=ENV['DISCORD_CHANNEL_ID']%>, text)
+        bot.stop
+        
     end
     def self.calculate_point
         novels=Novel.joins(:updates).where(updates: {novel_updated_at:  Date.today...Date.today+1.day})   
