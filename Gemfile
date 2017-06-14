@@ -34,6 +34,7 @@ group :development ,:test do
   gem 'rspec'
   gem 'rspec-rails'
   gem "nyan-cat-formatter"
+  gem "factory_girl_rails"
   gem 'spring-commands-rspec'
   gem 'guard-rspec', require: false
 
