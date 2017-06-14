@@ -6,7 +6,7 @@ class Unnovel < ApplicationRecord
         @data=data
     end   
     def self.get_data
-        bot = Discordrb::Bot.new token: <%=ENV['DISCORD_TOKEN']%>, client_id: <%=ENV['DISCORD_CLIENT_ID']%>
+        bot = Discordrb::Bot.new token: ENV['DISCORD_TOKEN'], client_id: ENV['DISCORD_CLIENT_ID']
         bot.run :async
         before=Update.count
         jsons=Array.new
@@ -30,7 +30,7 @@ class Unnovel < ApplicationRecord
         }
         after=Update.count
         text="update done!.\n #{after-before} update record(s) has been added!"
-        bot.send_message(<%=ENV['DISCORD_CHANNEL_ID']%>, text)
+        bot.send_message(ENV['DISCORD_CHANNEL_ID'], text)
         bot.stop
         
     end
