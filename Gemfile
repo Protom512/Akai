@@ -17,6 +17,7 @@ source 'https://rubygems.org'
  gem 'therubyracer'
  gem 'washbullet'
  gem 'active_attr'
+ gem 'discordrb'
 group :development ,:test do
   gem 'better_errors'
   gem 'rack-mini-profiler', require: false
