@@ -1,0 +1,10 @@
+export DATABASE_URL=mysql2://root:TeTa5123@novel-db.cbo27oco3wup.us-west-2.rds.amazonaws.com/novel_scopper?sslca=config/amazon-rds-ca-cert.pem
+export DISCORD_CHANNEL_ID=324553637495963650
+export DISCORD_CLIENT_ID=324544065544781825
+export DISCORD_TOKEN=MzI0NTQ0MDY1NTQ0NzgxODI1.DCLTiw.npgYayOwWfTTFQSawNY3k18LBEs
+export HOST=novel-db.cbo27oco3wup.us-west-2.rds.amazonaws.com
+export LANG=ja_JP.UTF-8
+export SECRET_KEY_BASE=b6a63d91e1fff08f7b4c1b9a2212cca6344b96392e53a0a6ab53c5eef2b6ed7fd5bf2e9a16450abe3aaaf32770d92bcd18a9e638b9b1efdbbcbce12ddf48358f
+export db_pass=TeTa5123
+export db_port=3306
+export db_username=root

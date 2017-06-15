@@ -17,7 +17,7 @@ class UnnovelsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create unnovel" do
     assert_difference('Unnovel.count') do
-      post unnovels_url, params: { unnovel: {  } }
+      post unnovels_url, params: { unnovel: {} }
     end
 
     assert_redirected_to unnovel_url(Unnovel.last)
@@ -34,7 +34,7 @@ class UnnovelsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update unnovel" do
-    patch unnovel_url(@unnovel), params: { unnovel: {  } }
+    patch unnovel_url(@unnovel), params: { unnovel: {} }
     assert_redirected_to unnovel_url(@unnovel)
   end
 
