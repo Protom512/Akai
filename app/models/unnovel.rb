@@ -9,6 +9,7 @@ class Unnovel < ApplicationRecord
   def self.get_data
     bot = Discordrb::Bot.new token: ENV['DISCORD_TOKEN'], client_id: ENV['DISCORD_CLIENT_ID']
     bot.run :async
+    bot.send_message(ENV['DISCORD_CHANNEL_ID'], "starting fetching updates")
     before = Update.count
     jsons = []
     urls = []
