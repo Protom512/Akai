@@ -8,9 +8,9 @@
 # set :output, "/path/to/my/cron_log.log"
 #
 every 3.hours do
-#   command "/usr/bin/some_great_command"
+  #   command "/usr/bin/some_great_command"
   runner "Unnovel.get_data"
-#   rake "some:great:rake:task"
+  #   rake "some:great:rake:task"
 end
 #
 # every 4.days do
