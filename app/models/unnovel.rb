@@ -1,6 +1,5 @@
 require 'zlib'
 class Unnovel < ApplicationRecord
-  # has_one :novel
   STATUS = %w[daily weekly monthly yearly].freeze
   def intialize(_date = Date.today, _duration = 1.week)
     @data = data
