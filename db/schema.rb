@@ -12,44 +12,44 @@
 
 ActiveRecord::Schema.define(version: 20170211105736) do
 
-  create_table "novels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "ncode"
-    t.string   "title"
-    t.text     "story",      limit: 65535
-    t.integer  "genre"
-    t.integer  "big_genre"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "user_id"
-    t.integer  "ends"
-    t.integer  "novel_type"
+  create_table "novels", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "ncode"
+    t.string "title"
+    t.text "story"
+    t.integer "genre"
+    t.integer "big_genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "ends"
+    t.integer "novel_type"
   end
 
-  create_table "unnovels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.date     "date"
-    t.integer  "novel_id"
-    t.string   "duration"
-    t.float    "points",     limit: 24
+  create_table "unnovels", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "date"
+    t.integer "novel_id"
+    t.string "duration"
+    t.float "points", limit: 24
   end
 
-  create_table "updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "ncode"
-    t.integer  "length"
-    t.integer  "all_point"
-    t.integer  "all_hyoka_cnt"
-    t.integer  "global_point"
-    t.integer  "fav_novel_cnt"
-    t.integer  "review_cnt"
+  create_table "updates", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "ncode"
+    t.integer "length"
+    t.integer "all_point"
+    t.integer "all_hyoka_cnt"
+    t.integer "global_point"
+    t.integer "fav_novel_cnt"
+    t.integer "review_cnt"
     t.datetime "novel_updated_at"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "general_all_no"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "general_all_no"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "writer"
+  create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "writer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
