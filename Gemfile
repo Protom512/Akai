@@ -14,6 +14,7 @@ gem "mysql2"
 gem "parallel"
 gem "rails"
 gem "sass"
+gem 'scout_apm'
 gem 'therubyracer'
 gem "turbolinks"
 gem "uglifier"
