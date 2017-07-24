@@ -1,11 +1,11 @@
 require "rails_helper"
 require "active_attr/rspec"
 
-RSpec.describe ScoppConstant, :type => :model do
+RSpec.describe ScoppConstant, type: :model do
   it "get_url" do
     expect(ScoppConstant.get_url(500)).to eq("http://api.syosetu.com/novelapi/api/?out=json&lim=500&start=500&gzip=5")
   end
-  
+
   # it "push note"do
   #   title="title title"
   #   body="body asiegarga"
