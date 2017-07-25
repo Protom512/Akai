@@ -1,6 +1,5 @@
 require 'zlib'
 class Unnovel < ApplicationRecord
-  # has_one :novel
   STATUS = %w[daily weekly monthly yearly].freeze
   def intialize(_date = Date.today, _duration = 1.week)
     @data = data
@@ -9,6 +8,7 @@ class Unnovel < ApplicationRecord
   def self.get_data
     bot = Discordrb::Bot.new token: ENV['DISCORD_TOKEN'], client_id: ENV['DISCORD_CLIENT_ID']
     bot.run :async
+    bot.send_message(ENV['DISCORD_CHANNEL_ID'], "starting fetching updates")
     before = Update.count
     jsons = []
     urls = []

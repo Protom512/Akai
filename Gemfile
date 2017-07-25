@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+ruby '2.4.1'
 source 'https://rubygems.org'
 
 gem 'active_attr'
@@ -14,6 +15,7 @@ gem "mysql2"
 gem "parallel"
 gem "rails"
 gem "sass"
+gem 'scout_apm'
 gem 'therubyracer'
 gem "turbolinks"
 gem "uglifier"
@@ -21,12 +23,14 @@ gem 'washbullet'
 gem 'whenever', require: false
 group :development, :test do
   gem 'danger'
+
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'codecov', require: false
   gem 'coveralls', require: false
   gem "factory_girl_rails"
+
   gem 'guard-rspec', require: false
   gem 'metric_fu'
   gem "nyan-cat-formatter"
