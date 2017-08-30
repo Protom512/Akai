@@ -4,6 +4,7 @@ ruby '2.4.1'
 source 'https://rubygems.org'
 
 gem 'active_attr'
+gem 'activerecord-import'
 gem 'chart-js-rails'
 gem 'discordrb'
 gem "font-awesome-rails"
@@ -19,7 +20,6 @@ gem 'scout_apm'
 gem 'therubyracer'
 gem "turbolinks"
 gem "uglifier"
-gem 'washbullet'
 gem 'whenever', require: false
 group :development, :test do
   gem 'better_errors'
@@ -27,6 +27,7 @@ group :development, :test do
   gem 'bullet'
   gem 'codecov', require: false
   gem 'coveralls', require: false
+  gem "guard"
   gem 'guard-rspec', require: false
   gem 'metric_fu'
   gem "nyan-cat-formatter"
@@ -39,9 +40,8 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-checkstyle_formatter', require: false
   gem "rubycritic", require: false
-  gem 'spring-commands-rspec'
-
   gem "simplecov"
+  gem 'spring-commands-rspec'
   # モデルにテーブルのカラムをコメントで出力
   gem 'annotate'
 end
