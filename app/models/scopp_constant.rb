@@ -1,4 +1,4 @@
-require 'washbullet'
+# require 'washbullet'
 class ScoppConstant < ApplicationRecord
   include ActiveAttr::Attributes
   PUSHBULLET_API_KEY = ENV['PUSHBULLET_KEY']
@@ -18,5 +18,12 @@ class ScoppConstant < ApplicationRecord
       }
 
     )
+  end
+
+  def self.update_notification(message)
+    bot = Discordrb::Bot.new token: ENV['DISCORD_TOKEN'], client_id: ENV['DISCORD_CLIENT_ID']
+    bot.run :async
+    bot.send_message(ENV['DISCORD_CHANNEL_ID'], message)
+    bot.stop
   end
 end

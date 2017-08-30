@@ -5,11 +5,28 @@ class Unnovel < ApplicationRecord
     @data = data
   end
 
+  def self.make_dataset(jsons)
+    updates = []
+    users = []
+    novels = []
+    jsons.each do |json|
+      js = ActiveSupport::JSON.decode(json)
+      js.each do |data|
+        next if data['allcount'].present?
+        updates << Update.extract_data(data)
+        novels << Novel.extract_data(data)
+        users << User.extract_data(data)
+      end
+    end
+    Update.import updates
+    Novel.import novels, on_duplicate_key_update: %i[title story genre big_genre ends novel_type]
+    User.import users, on_duplicate_key_update: [:writer]
+  end
+
   def self.get_data
-    bot = Discordrb::Bot.new token: ENV['DISCORD_TOKEN'], client_id: ENV['DISCORD_CLIENT_ID']
-    bot.run :async
-    bot.send_message(ENV['DISCORD_CHANNEL_ID'], "starting fetching updates")
     before = Update.count
+    text = "starting fetching updates"
+    ScoppConstant.update_notification(text)
     jsons = []
     urls = []
     urls.push(ScoppConstant.get_url(1))
@@ -18,23 +35,15 @@ class Unnovel < ApplicationRecord
       gzip = Net::HTTP.get(uri)
       jsons.push(ActiveSupport::Gzip.decompress(gzip))
     end
-    jsons.each do |json|
-      js = ActiveSupport::JSON.decode(json)
-      js.each do |data|
-        next if data['allcount'].present?
-        User.set_data(data)
-        Novel.set_data(data)
-        Update.set_data(data)
-      end
-    end
+    make_dataset(jsons)
     after = Update.count
     text = "update done!.\n #{after - before} update record(s) has been added!"
-    bot.send_message(ENV['DISCORD_CHANNEL_ID'], text)
-    bot.stop
+    ScoppConstant.update_notification(text)
   end
 
   def self.calculate_point
     novels = Novel.joins(:updates).where(updates: { novel_updated_at: Date.today...Date.today + 1.day })
+
     # daily
     novels.each do |novel|
       unnovel_0 = Unnovel.new
@@ -46,6 +55,7 @@ class Unnovel < ApplicationRecord
       unnovel_2.calc_(Date.today, STATUS[2], novel)
       unnovel_3.calc_(Date.today, STATUS[3], novel)
     end
+
     # weekly
     # monthly
     # yearly
