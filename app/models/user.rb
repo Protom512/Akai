@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  has_many :novel
+  has_many :novel, primary_key: "userid", foreign_key: "user_id"
   def self.extract_data(data)
     User.create(
+      userid: data['userid'],
       writer: data['writer']
     )
   end

@@ -13,12 +13,13 @@ class Unnovel < ApplicationRecord
       js = ActiveSupport::JSON.decode(json)
       js.each do |data|
         next if data['allcount'].present?
-        updates << Update.extract_data(data)
+        # updates << Update.extract_data(data)
+        Update.set_data(data)
         novels << Novel.extract_data(data)
         users << User.extract_data(data)
       end
     end
-    Update.import updates
+    # Update.import updates, on_duplicate_key_update: false
     Novel.import novels, on_duplicate_key_update: %i[title story genre big_genre ends novel_type]
     User.import users, on_duplicate_key_update: [:writer]
   end
@@ -43,7 +44,7 @@ class Unnovel < ApplicationRecord
 
   def self.calculate_point
     novels = Novel.joins(:updates).where(updates: { novel_updated_at: Date.today...Date.today + 1.day })
-
+    p novels.first
     # daily
     novels.each do |novel|
       unnovel_0 = Unnovel.new

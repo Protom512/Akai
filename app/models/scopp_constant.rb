@@ -3,8 +3,7 @@ class ScoppConstant < ApplicationRecord
   include ActiveAttr::Attributes
   PUSHBULLET_API_KEY = ENV['PUSHBULLET_KEY']
   def self.get_url(num)
-    url = "http://api.syosetu.com/novelapi/api/?out=json&lim=500&start=#{num}&gzip=5"
-    url
+    "http://api.syosetu.com/novelapi/api/?out=json&lim=500&start=#{num}&gzip=5"
   end
 
   def self.pushbullet_note(title, note)
