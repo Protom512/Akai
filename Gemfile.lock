@@ -218,7 +218,6 @@ GEM
     parallel (1.12.0)
     parser (2.4.0.0)
       ast (~> 2.2)
-    path_expander (1.0.2)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -227,6 +226,14 @@ GEM
     pry-byebug (3.5.0)
       byebug (~> 9.1)
       pry (~> 0.10)
+    pry-doc (0.11.1)
+      pry (~> 0.9)
+      yard (~> 0.9)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     public_suffix (3.0.0)
     rack (2.0.3)
     rack-mini-profiler (0.10.5)
@@ -397,6 +404,7 @@ GEM
     websocket-extensions (0.1.2)
     whenever (0.9.7)
       chronic (>= 0.6.3)
+    yard (0.9.9)
 
 PLATFORMS
   ruby
@@ -425,6 +433,9 @@ DEPENDENCIES
   parallel
   pry
   pry-byebug
+  pry-doc
+  pry-rails
+  pry-stack_explorer
   rack-mini-profiler
   rails
   rails-erd

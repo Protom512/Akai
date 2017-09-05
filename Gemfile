@@ -33,6 +33,9 @@ group :development, :test do
   gem "nyan-cat-formatter"
   gem 'pry'
   gem 'pry-byebug'
+  gem 'pry-doc'    # methodを表示
+  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-stack_explorer' # スタックをたどれる
   gem 'rack-mini-profiler', require: false
   gem 'rails-erd'
   gem 'rspec'
