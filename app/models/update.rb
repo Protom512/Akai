@@ -1,6 +1,6 @@
 class Update < ApplicationRecord
   belongs_to :novel, primary_key: "ncode", foreign_key: "ncode"
-
+ # valications :time_zone, inclusion: { in: ActiveSupport::TimeZone.zones_map(&:name) }
   def self.extract_data(data)
     Update.create(
       ncode: data['ncode'],

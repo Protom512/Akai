@@ -19,7 +19,7 @@ class Unnovel < ApplicationRecord
         users << User.extract_data(data)
       end
     end
-    # Update.import updates, on_duplicate_key_update: false
+    Update.import updates, on_duplicate_key_update: false
     Novel.import novels, on_duplicate_key_update: %i[title story genre big_genre ends novel_type]
     User.import users, on_duplicate_key_update: [:writer]
   end
@@ -27,7 +27,7 @@ class Unnovel < ApplicationRecord
   def self.get_data
     before = Update.count
     text = "starting fetching updates"
-    ScoppConstant.update_notification(text)
+    # ScoppConstant.update_notification(text)
     jsons = []
     urls = []
     urls.push(ScoppConstant.get_url(1))
@@ -39,13 +39,13 @@ class Unnovel < ApplicationRecord
     make_dataset(jsons)
     after = Update.count
     text = "update done!.\n #{after - before} update record(s) has been added!"
-    ScoppConstant.update_notification(text)
+    # ScoppConstant.update_notification(text)
   end
 
   def self.calculate_point
     novels = Novel.joins(:updates).where(updates: { novel_updated_at: Date.today...Date.today + 1.day })
     p novels.first
-    # daily
+
     novels.each do |novel|
       unnovel_0 = Unnovel.new
       unnovel_1 = Unnovel.new
