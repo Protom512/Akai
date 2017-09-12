@@ -13,6 +13,7 @@ gem "jquery-rails"
 gem 'listen'
 gem 'momentjs-rails'
 gem "mysql2"
+gem 'newrelic_rpm'
 gem "parallel"
 gem "rails"
 gem "sass"
