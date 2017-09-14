@@ -30,7 +30,6 @@ group :development, :test do
   gem 'coveralls', require: false
   gem "guard"
   gem 'guard-rspec', require: false
-  gem 'metric_fu'
   gem "nyan-cat-formatter"
   gem 'pry'
   gem 'pry-byebug'
@@ -44,6 +43,9 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-checkstyle_formatter', require: false
   gem "rubycritic", require: false
+  gem 'spring-commands-rspec'
+  gem 'stackprof'
+
   gem "simplecov"
   gem 'spring-commands-rspec'
   # モデルにテーブルのカラムをコメントで出力
