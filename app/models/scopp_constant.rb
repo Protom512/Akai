@@ -1,4 +1,6 @@
 # require 'washbullet'
+
+require 'discordrb'
 class ScoppConstant < ApplicationRecord
   include ActiveAttr::Attributes
   PUSHBULLET_API_KEY = ENV['PUSHBULLET_KEY']

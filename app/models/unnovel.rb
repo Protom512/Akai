@@ -1,4 +1,6 @@
 require 'zlib'
+require 'benchmark'
+require 'discordrb'
 class Unnovel < ApplicationRecord
   STATUS = %w[daily weekly monthly yearly].freeze
   def intialize(_date = Date.today, _duration = 1.week)
@@ -9,37 +11,43 @@ class Unnovel < ApplicationRecord
     updates = []
     users = []
     novels = []
+    jsons.count
     jsons.each do |json|
       js = ActiveSupport::JSON.decode(json)
+      count = js.count
       js.each do |data|
         next if data['allcount'].present?
-        # updates << Update.extract_data(data)
-        Update.set_data(data)
+        updates << Update.extract_data(data)
+        # Update.set_data(data)
         novels << Novel.extract_data(data)
         users << User.extract_data(data)
+        count -= 1
+        p count.to_s
       end
     end
-    Update.import updates, on_duplicate_key_update: false
-    Novel.import novels, on_duplicate_key_update: %i[title story genre big_genre ends novel_type]
-    User.import users, on_duplicate_key_update: [:writer]
+    p "end"
+    Benchmark.bm 10 do |r|
+      r.report "Nantoka" do
+        Update.import updates, on_duplicate_key_ignore:true
+        Novel.import novels, on_duplicate_key_update: %i[title story genre big_genre ends novel_type]
+        User.import users, on_duplicate_key_update: %i[userid writer]
+      end
+    end
   end
 
   def self.get_data
     before = Update.count
     text = "starting fetching updates"
-    # ScoppConstant.update_notification(text)
+    p text
     jsons = []
-    urls = []
-    urls.push(ScoppConstant.get_url(1))
-    Parallel.each(urls, in_threads: 4) do |url|
-      uri = URI.parse(url)
-      gzip = Net::HTTP.get(uri)
-      jsons.push(ActiveSupport::Gzip.decompress(gzip))
-    end
+    url = ScoppConstant.get_url(1)
+    uri = URI.parse(url)
+    gzip = Net::HTTP.get(uri)
+    jsons.push(ActiveSupport::Gzip.decompress(gzip))
     make_dataset(jsons)
     after = Update.count
     text = "update done!.\n #{after - before} update record(s) has been added!"
-    # ScoppConstant.update_notification(text)
+    p text
   end
 
   def self.calculate_point

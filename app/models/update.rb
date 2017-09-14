@@ -1,8 +1,8 @@
 class Update < ApplicationRecord
   belongs_to :novel, primary_key: "ncode", foreign_key: "ncode"
- # valications :time_zone, inclusion: { in: ActiveSupport::TimeZone.zones_map(&:name) }
+  # valications :time_zone, inclusion: { in: ActiveSupport::TimeZone.zones_map(&:name) }
   def self.extract_data(data)
-    Update.create(
+    Update.find_or_create_by(
       ncode: data['ncode'],
       novel_updated_at: data['novelupdated_at'],
       general_all_no: data['general_all_no'],
