@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rubocop-checkstyle_formatter', require: false
   gem "rubycritic", require: false
   gem 'spring-commands-rspec'
+  gem 'stackprof'
 
   gem "simplecov"
   # モデルにテーブルのカラムをコメントで出力
