@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.4.1
+- 2.4.2
 services:
   - mysql
 bundler_args: --without development --deployment
@@ -9,8 +9,10 @@ before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS novel_test;' 
 before_script:
   - cp config/database.yml.travis config/database.yml
+  - RAILS_ENV=test bundle exec rake db:drop
   - RAILS_ENV=test bundle exec rake db:create
   - RAILS_ENV=test bundle exec rake db:migrate
+  - RAILS_ENV=test bundle exec rake update_feed
   
 addons:
     code_climate:

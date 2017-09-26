@@ -30,11 +30,10 @@ build:
         - script:
             name: DB schema load
             code: |
-                mysql -u$MYSQL_USER -p$MYSQL_PASSWORD -D$MYSQL_DATABASE -e "show variables like "chara%"\G"
                 RAILS_ENV=test bundle exec rake db:drop
                 RAILS_ENV=test bundle exec rake db:create
                 RAILS_ENV=test bundle exec rake db:migrate
-                RAILS_ENV=test bundle exec rake update_feed
+                # RAILS_ENV=test bundle exec rake update_feed
         
 
         - script:
