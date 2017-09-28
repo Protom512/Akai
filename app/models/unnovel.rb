@@ -28,7 +28,7 @@ class Unnovel < ApplicationRecord
     p "end"
     Benchmark.bm 10 do |r|
       r.report "Nantoka" do
-        Update.import updates, on_duplicate_key_ignore:true
+        Update.import updates, on_duplicate_key_ignore: true
         Novel.import novels, on_duplicate_key_update: %i[title story genre big_genre ends novel_type]
         User.import users, on_duplicate_key_update: %i[userid writer]
       end
