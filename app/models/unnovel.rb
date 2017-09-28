@@ -27,6 +27,7 @@ class Unnovel < ApplicationRecord
         novels << Novel.extract_data(data)
         users << User.extract_data(data)
         count -= 1
+        p count.to_s
       end
     end
     p "end"
