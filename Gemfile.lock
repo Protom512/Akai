@@ -36,6 +36,8 @@ GEM
       activemodel (= 5.1.4)
       activesupport (= 5.1.4)
       arel (~> 8.0)
+    activerecord-import (0.20.1)
+      activerecord (>= 3.2)
     activesupport (5.1.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
@@ -47,7 +49,6 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
     arel (8.0.0)
-    arrayfields (4.9.2)
     ast (2.3.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -64,23 +65,12 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.1.0)
-    cane (2.6.2)
-      parallel
-    chart-js-rails (0.1.3)
+    chart-js-rails (0.1.4)
       railties (> 3.1)
     choice (0.2.0)
     chronic (0.10.2)
-    churn (0.0.35)
-      chronic (>= 0.2.3)
-      hirb
-      json_pure
-      main
-      rest-client (>= 1.6.0)
-      ruby_parser (~> 3.0)
-      sexp_processor (~> 4.1)
-    code_analyzer (0.4.8)
-      sexp_processor
-    code_metrics (0.1.3)
+    codeclimate-engine-rb (0.4.0)
+      virtus (~> 1.0)
     codecov (0.1.10)
       json
       simplecov
@@ -95,6 +85,7 @@ GEM
       term-ansicolor (~> 1.3)
       thor (~> 0.19.4)
       tins (~> 1.6)
+    crass (1.0.2)
     debug_inspector (0.0.3)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -115,16 +106,16 @@ GEM
     erubis (2.7.0)
     event_emitter (0.2.6)
     execjs (2.7.0)
-    faraday (0.9.2)
-      multipart-post (>= 1.2, < 3)
-    fattr (2.3.0)
     ffi (1.9.18)
-    flay (2.4.0)
+    flay (2.10.0)
+      erubis (~> 2.7.0)
+      path_expander (~> 1.0)
       ruby_parser (~> 3.0)
       sexp_processor (~> 4.0)
-    flog (4.2.1)
+    flog (4.6.1)
+      path_expander (~> 1.0)
       ruby_parser (~> 3.1, > 3.1.0)
-      sexp_processor (~> 4.4)
+      sexp_processor (~> 4.8)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
     formatador (0.2.5)
@@ -149,7 +140,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    hirb (0.7.3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.8.6)
@@ -159,7 +149,6 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.1.0)
-    json_pure (2.1.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     libv8 (3.16.14.19)
@@ -167,49 +156,28 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.0.3)
+    loofah (2.1.1)
+      crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.12)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
-    main (6.2.2)
-      arrayfields (~> 4.7, >= 4.7.4)
-      chronic (~> 0.6, >= 0.6.2)
-      fattr (~> 2.2, >= 2.2.0)
-      map (~> 6.1, >= 6.1.0)
-    map (6.6.0)
     method_source (0.8.2)
-    metric_fu (4.12.0)
-      cane (~> 2.5, >= 2.5.2)
-      churn (~> 0.0.35)
-      code_metrics (~> 0.1)
-      coderay
-      flay (~> 2.1, >= 2.0.1)
-      flog (~> 4.1, >= 4.1.1)
-      launchy (~> 2.0)
-      metric_fu-Saikuro (~> 1.1, >= 1.1.3)
-      multi_json
-      rails_best_practices (~> 1.14, >= 1.14.3)
-      redcard
-      reek (>= 1.3.4, < 3.0)
-      roodi (~> 3.1)
-    metric_fu-Saikuro (1.1.3)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.3)
     momentjs-rails (2.17.1)
       railties (>= 3.1)
     multi_json (1.12.2)
-    multipart-post (2.0.0)
     mysql2 (0.4.9)
     nenv (0.3.0)
     netrc (0.11.0)
     newrelic_rpm (4.4.0.336)
     nio4r (2.1.0)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -222,13 +190,20 @@ GEM
       ast (~> 2.2)
     path_expander (1.0.2)
     powerpack (0.1.1)
-    pry (0.10.4)
+    pry (0.11.0)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
-      slop (~> 3.4)
     pry-byebug (3.5.0)
       byebug (~> 9.1)
       pry (~> 0.10)
+    pry-doc (0.11.1)
+      pry (~> 0.9)
+      yard (~> 0.9)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     public_suffix (3.0.0)
     rack (2.0.3)
     rack-mini-profiler (0.10.5)
@@ -257,14 +232,6 @@ GEM
       ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails_best_practices (1.19.0)
-      activesupport
-      code_analyzer (>= 0.4.8)
-      erubis
-      i18n
-      json
-      require_all
-      ruby-progressbar
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -279,21 +246,16 @@ GEM
       ffi (>= 0.5.0, < 2)
     rbnacl (3.4.0)
       ffi
-    redcard (1.1.0)
-    reek (1.3.8)
-      rainbow (>= 1.99, < 3.0)
-      ruby2ruby (>= 2.0.8, < 3.0)
-      ruby_parser (~> 3.3)
-      sexp_processor
+    reek (4.7.2)
+      codeclimate-engine-rb (~> 0.4.0)
+      parser (>= 2.4.0.0, < 2.5)
+      rainbow (~> 2.0)
     ref (2.0.0)
     request_store (1.3.2)
-    require_all (1.4.0)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    roodi (3.3.1)
-      ruby_parser (~> 3.2, >= 3.2.2)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
       rspec-expectations (~> 3.6.0)
@@ -315,29 +277,28 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
-    rubocop (0.49.1)
+    rubocop (0.50.0)
       parallel (~> 1.10)
       parser (>= 2.3.3.1, < 3.0)
       powerpack (~> 0.1)
-      rainbow (>= 1.99.1, < 3.0)
+      rainbow (>= 2.2.2, < 3.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     rubocop-checkstyle_formatter (0.4.0)
       rubocop (>= 0.35.1)
     ruby-graphviz (1.2.3)
-    ruby-progressbar (1.8.1)
-    ruby2ruby (2.4.0)
-      ruby_parser (~> 3.1)
-      sexp_processor (~> 4.6)
+    ruby-progressbar (1.8.3)
     ruby_dep (1.5.0)
     ruby_parser (3.10.1)
       sexp_processor (~> 4.9)
-    rubycritic (1.1.1)
-      flay (= 2.4.0)
-      flog (= 4.2.1)
-      parser (~> 2.1)
-      reek (= 1.3.8)
-      ruby2ruby (>= 2.1.1, < 3.0)
+    rubycritic (3.2.3)
+      flay (~> 2.8)
+      flog (~> 4.4)
+      launchy (= 2.4.3)
+      parser (~> 2.4.0)
+      rainbow (~> 2.1)
+      reek (~> 4.4)
+      ruby_parser (~> 3.8)
       virtus (~> 1.0)
     sass (3.5.1)
       sass-listen (~> 4.0.0)
@@ -364,6 +325,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stackprof (0.2.10)
     term-ansicolor (1.6.0)
       tins (~> 1.0)
     therubyracer (0.12.3)
@@ -390,9 +352,6 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    washbullet (0.4.0)
-      faraday (~> 0.9.0)
-      mime-types
     websocket (1.2.4)
     websocket-client-simple (0.3.0)
       event_emitter
@@ -402,12 +361,14 @@ GEM
     websocket-extensions (0.1.2)
     whenever (0.9.7)
       chronic (>= 0.6.3)
+    yard (0.9.9)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   active_attr
+  activerecord-import
   annotate
   better_errors
   binding_of_caller
@@ -418,10 +379,10 @@ DEPENDENCIES
   discordrb
   font-awesome-rails
   gon
+  guard
   guard-rspec
   jquery-rails
   listen
-  metric_fu
   momentjs-rails
   mysql2
   newrelic_rpm
@@ -429,6 +390,9 @@ DEPENDENCIES
   parallel
   pry
   pry-byebug
+  pry-doc
+  pry-rails
+  pry-stack_explorer
   rack-mini-profiler
   rails
   rails-erd
@@ -441,14 +405,13 @@ DEPENDENCIES
   scout_apm
   simplecov
   spring-commands-rspec
+  stackprof
   therubyracer
   turbolinks
   uglifier
-  washbullet
   whenever
 
 RUBY VERSION
-   ruby 2.4.1p111
-
 BUNDLED WITH
-   1.15.4
+   1.16.0.pre.2
+

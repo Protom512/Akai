@@ -22,4 +22,4 @@ Metrics/LineLength:
   Enabled: false
 
   Rails:
-  Enabled: true
+  Enabled: false

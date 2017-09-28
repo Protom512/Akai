@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211105736) do
+ActiveRecord::Schema.define(version: 20170830141011) do
 
   create_table "novels", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "ncode"
@@ -46,12 +46,15 @@ ActiveRecord::Schema.define(version: 20170211105736) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "general_all_no"
+    t.index ["ncode", "novel_updated_at"], name: "index_updates_on_ncode_and_novel_updated_at", unique: true
   end
 
   create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "writer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "userid"
+    t.index ["userid"], name: "index_users_on_userid"
   end
 
 end
