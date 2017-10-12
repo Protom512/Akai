@@ -18,7 +18,6 @@ class Unnovel < ApplicationRecord
     jsons.each do |json|
       js = ActiveSupport::JSON.decode(json)
       count = js.count
-
       Parallel.each(js, in_threads: 4) do |data|
         next if data['allcount'].present?
 
@@ -27,7 +26,6 @@ class Unnovel < ApplicationRecord
         novels << Novel.extract_data(data)
         users << User.extract_data(data)
         count -= 1
-        p count.to_s
       end
     end
     p "end"
