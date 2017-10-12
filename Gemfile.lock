@@ -36,7 +36,7 @@ GEM
       activemodel (= 5.1.4)
       activesupport (= 5.1.4)
       arel (~> 8.0)
-    activerecord-import (0.20.1)
+    activerecord-import (0.20.2)
       activerecord (>= 3.2)
     activesupport (5.1.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
@@ -102,7 +102,7 @@ GEM
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     equalizer (0.0.11)
-    erubi (1.6.1)
+    erubi (1.7.0)
     erubis (2.7.0)
     event_emitter (0.2.6)
     execjs (2.7.0)
@@ -121,9 +121,8 @@ GEM
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    gon (6.1.0)
+    gon (6.2.0)
       actionpack (>= 3.0)
-      json
       multi_json
       request_store (>= 1.0)
     guard (2.14.1)
@@ -291,7 +290,7 @@ GEM
     ruby_dep (1.5.0)
     ruby_parser (3.10.1)
       sexp_processor (~> 4.9)
-    rubycritic (3.2.3)
+    rubycritic (3.3.0)
       flay (~> 2.8)
       flog (~> 4.4)
       launchy (= 2.4.3)
@@ -299,8 +298,9 @@ GEM
       rainbow (~> 2.1)
       reek (~> 4.4)
       ruby_parser (~> 3.8)
+      tty-which (~> 0.3.0)
       virtus (~> 1.0)
-    sass (3.5.1)
+    sass (3.5.2)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -333,6 +333,7 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tins (1.15.0)
+    tty-which (0.3.0)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
@@ -414,4 +415,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.0.pre.2
+   1.15.4
