@@ -15,6 +15,7 @@ gem 'momentjs-rails'
 gem "mysql2"
 gem 'newrelic_rpm'
 gem "parallel"
+# gem 'puma'
 gem "rails"
 gem "sass"
 gem 'scout_apm'
