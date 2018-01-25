@@ -17,7 +17,6 @@ class ScoppConstant < ApplicationRecord
         title: title,
         body:  note
       }
-
     )
   end
 
