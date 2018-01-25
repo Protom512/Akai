@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-ruby '2.4.2'
 source 'https://rubygems.org'
 
 gem 'active_attr'
@@ -15,6 +14,7 @@ gem 'momentjs-rails'
 gem "mysql2"
 gem 'newrelic_rpm'
 gem "parallel"
+gem 'puma'
 gem "rails"
 gem "sass"
 gem 'scout_apm'

@@ -1,6 +1,7 @@
 require 'zlib'
 require 'benchmark'
 require 'discordrb'
+require 'parallel'
 class Unnovel < ApplicationRecord
   STATUS = %w[daily weekly monthly yearly].freeze
   def intialize(_date = Date.today, _duration = 1.week)
@@ -15,14 +16,14 @@ class Unnovel < ApplicationRecord
     jsons.each do |json|
       js = ActiveSupport::JSON.decode(json)
       count = js.count
-      js.each do |data|
+
+      Parallel.each(js, in_threads: 4) do |data|
         next if data['allcount'].present?
         updates << Update.extract_data(data)
         # Update.set_data(data)
         novels << Novel.extract_data(data)
         users << User.extract_data(data)
         count -= 1
-        p count.to_s
       end
     end
     p "end"
