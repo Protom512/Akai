@@ -41,7 +41,6 @@ class Unnovel < ApplicationRecord
   def self.get_data
     before = Update.count
     text = "starting fetching updates"
-    p text
     jsons = []
     url = ScoppConstant.get_url(1)
     uri = URI.parse(url)
@@ -50,7 +49,7 @@ class Unnovel < ApplicationRecord
     make_dataset(jsons)
     after = Update.count
     text = "update done!.\n #{after - before} update record(s) has been added!"
-    p text
+  
   end
 
   def self.calculate_point

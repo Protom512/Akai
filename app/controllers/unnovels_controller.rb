@@ -5,7 +5,7 @@ class UnnovelsController < ApplicationController
 
   # GET /unnovels
   def index
-    @updates = Update.all.order(:novel_updated_at).group(:ncode).last(10)
+    @updates = Update.all.order(:novel_created_at).last(10).order(:novel_updated_at).group(:ncode)
     @update_data = Update.daily_data
     gon.json_url = unnovels_url + '.json'
 

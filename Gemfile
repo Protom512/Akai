@@ -6,31 +6,35 @@ gem 'active_attr'
 gem 'activerecord-import'
 gem 'chart-js-rails'
 gem 'discordrb'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 gem 'gon'
-gem "jquery-rails"
+gem 'jquery-rails'
 gem 'listen'
 gem 'momentjs-rails'
-gem "mysql2"
+gem 'mysql2' ,'~>0.3.20'
 gem 'newrelic_rpm'
-gem "parallel"
+gem 'parallel'
 gem 'puma'
-gem "rails"
-gem "sass"
+gem 'rails'
+gem 'sass'
 gem 'scout_apm'
 gem 'therubyracer'
-gem "turbolinks"
-gem "uglifier"
+gem 'trailblazer'
+gem 'trailblazer-cells'
+gem 'trailblazer-rails'
+gem 'turbolinks'
+gem 'uglifier'
 gem 'whenever', require: false
 group :development, :test do
+  gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'codecov', require: false
   gem 'coveralls', require: false
-  gem "guard"
+  gem 'guard'
   gem 'guard-rspec', require: false
-  gem "nyan-cat-formatter"
+  gem 'nyan-cat-formatter'
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-doc'    # methodを表示
@@ -42,7 +46,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-checkstyle_formatter', require: false
-  gem "rubycritic", require: false
+  gem 'rubycritic', require: false
+  gem 'simplecov'
   gem 'spring-commands-rspec'
   gem 'stackprof'
 
