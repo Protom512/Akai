@@ -46,7 +46,6 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'stackprof'
 
-  gem "simplecov"
   gem 'spring-commands-rspec'
   # モデルにテーブルのカラムをコメントで出力
   gem 'annotate'
