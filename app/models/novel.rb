@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Novel < ApplicationRecord
   has_many :updates, primary_key: "ncode", foreign_key: "ncode"
   belongs_to :user, primary_key: "userid", foreign_key: "user_id"

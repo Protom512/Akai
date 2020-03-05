@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'zlib'
 require 'benchmark'
 require 'discordrb'
@@ -19,6 +21,7 @@ class Unnovel < ApplicationRecord
 
       Parallel.each(js, in_threads: 4) do |data|
         next if data['allcount'].present?
+
         updates << Update.extract_data(data)
         # Update.set_data(data)
         novels << Novel.extract_data(data)

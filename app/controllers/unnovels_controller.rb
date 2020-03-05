@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UnnovelsController < ApplicationController
   before_action :set_unnovel, only: %i[show edit update destroy]
 
