@@ -3,7 +3,6 @@ rvm:
 - 2.4.2
 services:
   - mysql
-bundler_args: --without development --deployment
 cache: bundler
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS novel_test;' 
