@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # require 'washbullet'
 
 require 'discordrb'
@@ -11,11 +13,11 @@ class ScoppConstant < ApplicationRecord
   def self.pushbullet_note(title, note)
     client = Washbullet::Client.new(PUSHBULLET_API_KEY)
     client.push_note(
-      receiver:   :client,
+      receiver: :client,
       identifier: nil,
       params: {
         title: title,
-        body:  note
+        body: note
       }
     )
   end

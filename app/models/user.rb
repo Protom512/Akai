@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :novel, primary_key: "userid", foreign_key: "user_id"
   def self.extract_data(data)
