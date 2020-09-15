@@ -1,5 +1,0 @@
-test:
-  adapter: mysql2
-  database: novel_test
-  username: root
-  encoding: utf8
